@@ -65,7 +65,7 @@ class VehiculoController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'nombre_vehiculo' => 'sometimes|string|max:255',
+            'nombre_vehiculo' => 'sometimes|unique:vehiculo|string|max:255',
             'descripcion' => 'sometimes|string|max:255',
         ]);
 
