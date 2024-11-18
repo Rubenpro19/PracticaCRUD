@@ -29,7 +29,7 @@ return [
     |
     */ 
 
-    'connecti ons' => [
+    'connections' => [
 
         'sqlite' => [
             'driver' => 'sqlite',
@@ -42,7 +42,7 @@ return [
             'synchronous' => null,
         ],
 
-        'my sql' => [
+        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -62,7 +62,7 @@ return [
             ]) : [],
         ],
 
-        'maridb' => [
+        'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -82,7 +82,7 @@ return [
             ]) : [],
         ],
 
-        'pgql' => [
+        'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -97,7 +97,7 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'sqlrv' => [
+        'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', 'localhost'),
