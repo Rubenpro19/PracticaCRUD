@@ -11,7 +11,7 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculo = Vehiculo::all();
-        if(!$vehiculo){
+        if($vehiculo==null){
             return response()->json([
                 'Mensaje' => 'No hay registros'
             ]);
