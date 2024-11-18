@@ -9,7 +9,7 @@ class Vehiculo extends Model
     protected $table = 'vehiculo';
 
     protected $fillable = [
-        'tipo_vehiculo',
+        'nombre_vehiculo',
         'descripcion',
     ];
 }

@@ -11,13 +11,18 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculo = Vehiculo::all();
+        if(!$vehiculo){
+            return response()->json([
+                'Mensaje' => 'No hay registros'
+            ]);
+        }
         return response()->json($vehiculo);
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'tipo_vehiculo' => 'required|string|max:255|min:5',
+            'nombre_vehiculo' => 'required|unique:vehiculo|string|max:255',
             'descripcion' => 'sometimes|string|max:255|min:5',
         ]);
 
@@ -29,7 +34,7 @@ class VehiculoController extends Controller
         }
 
         $vehiculo = Vehiculo::create([
-            'tipo_vehiculo' => $request->tipo_vehiculo,
+            'nombre_vehiculo' => $request->nombre_vehiculo,
             'descripcion' => $request->descripcion,
         ]);
 
@@ -60,7 +65,7 @@ class VehiculoController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'tipo_vehiculo' => 'sometimes|string|max:255',
+            'nombre_vehiculo' => 'sometimes|string|max:255',
             'descripcion' => 'sometimes|string|max:255',
         ]);
 
@@ -72,7 +77,7 @@ class VehiculoController extends Controller
         }
 
         $vehiculo->update([
-            'tipo_vehiculo' => $request->tipo_vehiculo ?? $vehiculo->tipo_vehiculo,
+            'nombre_vehiculo' => $request->nombre_vehiculo ?? $vehiculo->nombre_vehiculo,
             'descripcion' => $request->descripcion ?? $vehiculo->descripcion,
         ]);
 
