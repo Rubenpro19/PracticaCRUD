@@ -4,9 +4,9 @@ use App\Http\Controllers\VehiculoController;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Route; 
 
-Route::get('/user', function (Request $request) { 
-    return $request->user(); 
-})->middleware('auth:sanctum'); 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 //CRUD DE VEHÍCULO
 Route::get('/vehiculo', [VehiculoController::class, 'index'])->name('vehiculo.index'); 
