@@ -16,7 +16,7 @@ class VehiculoController extends Controller
                 'Mensaje' => 'No hay registros'
             ]);
         }
-        return response()->json($vehiculo);
+        return view('welcome', ['vehiculos' => $vehiculo]);
     }
 
     public function store(Request $request)
@@ -38,10 +38,7 @@ class VehiculoController extends Controller
             'descripcion' => $request->descripcion,
         ]);
 
-        return response()->json([
-            'Mensaje' => 'Vehiculo creado correctamente',
-            'Vehiculo' => $vehiculo,
-        ], 200);
+        return redirect()->route('vehiculo.index');
     }
 
     public function show(string $id)
@@ -81,10 +78,7 @@ class VehiculoController extends Controller
             'descripcion' => $request->descripcion ?? $vehiculo->descripcion,
         ]);
 
-        return response()->json([
-            'Mensaje' => 'Vehiculo actualizado con éxito',
-            'Vehículo' => $vehiculo,
-        ]);
+        return redirect()->route('vehiculo.index');
     }
 
     public function destroy(string $id)
@@ -101,5 +95,7 @@ class VehiculoController extends Controller
         return response()->json([
             'Mensaje' => 'Vehiculo eliminado correctamente',
         ]);
+
+        return redirect()->route('vehiculo.index');
     }
 }
