@@ -92,10 +92,6 @@ class VehiculoController extends Controller
         }
 
         $vehiculo->delete();
-        return response()->json([
-            'Mensaje' => 'Vehiculo eliminado correctamente',
-        ]);
-
         return redirect()->route('vehiculo.index');
     }
 }

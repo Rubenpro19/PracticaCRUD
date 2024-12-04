@@ -1,104 +1,116 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    padding: 20px;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f;
+    color: #e4e4eb;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 h1, h2 {
-    color: #333;
+    color: #ff6b6b;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-/* Formulario general */
+/* Formularios */
 form {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    margin: auto;
-    background-color: #ffffff;
+    background-color: #2b2b40;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
 }
 
-label {
+form label {
     margin-top: 10px;
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"] {
+form input[type="text"] {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2f2f44;
+    color: #e4e4eb;
+}
+
+form button {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ff4c4c;
+}
+
+/* Tablas */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #2b2b40;
+    color: #e4e4eb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+table th {
+    background-color: #3a3a50;
+}
+
+table tr:hover {
+    background-color: #343450;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px;
-    border: none;
-    background-color: #4CAF50;
+    background-color: #4c7eff;
     color: white;
-    font-weight: bold;
-    border-radius: 5px;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #3a64d8;
 }
 
-/* Tabla de productos */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+form[style="display:inline;"] button {
+    background-color: #ff6b6b;
 }
 
-th, td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
+form[style="display:inline;"] button:hover {
+    background-color: #d85252;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-td {
-    background-color: #f9f9f9;
-}
-
-td button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 6px 10px;
-    font-size: 14px;
-    margin: 2px;
-    border-radius: 3px;
-}
-
-td button:hover {
-    background-color: #45a049;
-}
-
-/* Formulario modal para editar */
+/* Modal */
 #editFormContainer {
     position: fixed;
     top: 50%;
@@ -106,26 +118,15 @@ td button:hover {
     transform: translate(-50%, -50%);
     width: 400px;
     display: none;
-    background-color: #ffffff;
-    padding: 20px;
+    background-color: #1e1e2f;
+    color: #e4e4eb;
     border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
-/* Fondo oscuro cuando el modal está activo */
-#editFormContainer.active {
-    display: block;
-}
-
 #editFormContainer button {
-    margin-top: 10px;
-}
-
-#editFormContainer .cancel-btn {
-    background-color: #f44336;
-}
-
-#editFormContainer .cancel-btn:hover {
-    background-color: #d32f2f;
+    margin-right: 10px;
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Vehículos</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <script src="{{ asset('js/vehiculo.js')}}"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
         </tbody>
     </table>
 
-    <!-- Formulario Modal para Actualizar un Producto -->
+    <!-- Formulario Modal para Actualizar el Vehículo -->
     <div id="editFormContainer" style="display:none;">
         <h2>Editar Vehiculo</h2>
         <form id="editForm" method="POST">
@@ -65,24 +66,6 @@
             <button type="button" onclick="cancelarEdicion()">Cancelar</button>
         </form>
     </div>
-
-    <script>
-        // Función para editar un producto
-        function editarVehiculo(id, nombre_vehiculo, descripcion) {
-            document.getElementById('editFormContainer').style.display = 'block';
-            const editForm = document.getElementById('editForm');
-
-            // Configura la URL de acción con la ruta correcta
-            editForm.action = `{{ url('/api/vehiculo') }}/${id}`;
-            document.getElementById('editNombre').value = nombre_vehiculo;
-            document.getElementById('editDescripcion').value = descripcion;
-        }
-
-        // Función para cancelar la edición y ocultar el formulario
-        function cancelarEdicion() {
-            document.getElementById('editFormContainer').style.display = 'none';
-        }
-    </script>
 </body>
 
 </html>

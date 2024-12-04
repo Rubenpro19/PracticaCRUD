@@ -13,3 +13,4 @@ function editarVehiculo(id, nombre_vehiculo, descripcion) {
 function cancelarEdicion() {
     document.getElementById('editFormContainer').style.display = 'none';
 }
+
