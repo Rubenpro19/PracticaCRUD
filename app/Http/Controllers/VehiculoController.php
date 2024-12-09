@@ -11,19 +11,17 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculo = Vehiculo::all();
-        if($vehiculo==null){
-            return response()->json([
-                'Mensaje' => 'No hay registros'
-            ]);
-        }
-        return view('welcome', ['vehiculos' => $vehiculo]);
+        
+        return response()->json($vehiculo);
+        /* 
+        return view('welcome', ['vehiculos' => $vehiculo]); */
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nombre_vehiculo' => 'required|unique:vehiculo|string|max:255',
-            'descripcion' => 'sometimes|string|max:255|min:5',
+            'descripcion' => 'sometimes|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -38,7 +36,12 @@ class VehiculoController extends Controller
             'descripcion' => $request->descripcion,
         ]);
 
-        return redirect()->route('vehiculo.index');
+        return response()->json([
+            'Mensaje' => 'Vehiculo creado correctamente',
+            'Vehiculo' => $vehiculo,
+        ], 200);
+
+        /* return redirect()->route('vehiculo.index'); */
     }
 
     public function show(string $id)
@@ -78,7 +81,12 @@ class VehiculoController extends Controller
             'descripcion' => $request->descripcion ?? $vehiculo->descripcion,
         ]);
 
-        return redirect()->route('vehiculo.index');
+        return response()->json([
+            'Mensaje' => 'Vehiculo actualizado con éxito',
+            'Vehículo' => $vehiculo,
+        ]);
+
+        /* return redirect()->route('vehiculo.index'); */
     }
 
     public function destroy(string $id)
@@ -92,6 +100,11 @@ class VehiculoController extends Controller
         }
 
         $vehiculo->delete();
-        return redirect()->route('vehiculo.index');
+        
+        return response()->json([
+            'Mensaje' => 'Vehiculo eliminado correctamente',
+        ]);
+
+        /* return redirect()->route('vehiculo.index'); */
     }
 }
